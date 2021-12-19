@@ -5,6 +5,7 @@ from loader import dp, db
 import asyncpg.exceptions
 
 
+# for postgresql
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
     try:

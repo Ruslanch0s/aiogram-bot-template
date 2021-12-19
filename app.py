@@ -9,12 +9,10 @@ from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dispatcher):
-
+    # for postgresql
     logging.info("Создаем подключение к БД")
     await db.create_pool()
-
     await db.drop_table()
-
     logging.info("Создаем таблицу пользователей")
     await db.create_table_users()
 
@@ -26,4 +24,3 @@ async def on_startup(dispatcher):
 
 if __name__ == '__main__':
     executor.start_polling(dp, on_startup=on_startup)
-

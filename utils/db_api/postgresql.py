@@ -92,12 +92,10 @@ class Database:
         sql = "DROP TABLE Users;"
         await self.execute(sql, execute=True)
 
-if __name__ == '__main__':
-    db = Database()
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(db.create_pool())
-    print(loop.run_until_complete(db.drop_table()))
-    # print(loop.run_until_complete(db.select_all_users()))
+# if __name__ == '__main__':
+#     db = Database()
+#     loop = asyncio.get_event_loop()
+#     loop.run_until_complete(db.create_pool())
+#     print(loop.run_until_complete(db.drop_table()))
+#     # print(loop.run_until_complete(db.select_all_users()))
     # print(loop.run_until_complete(db.add_user(user_id=1, full_name="rus", telegram_id=321)))
-
-

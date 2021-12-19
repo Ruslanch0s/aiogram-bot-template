@@ -10,5 +10,6 @@ bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
+# for postgresql
 loop = asyncio.get_event_loop()
 db = Database()
