@@ -4,17 +4,21 @@ from aiogram import executor
 
 from loader import dp, db
 import middlewares, filters, handlers
+from utils.db_api import db_gino, example
+from utils.db_api.schemas.user import User
 from utils.notify_admins import on_startup_notify
 from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dispatcher):
     # for postgresql
-    logging.info("Создаем подключение к БД")
-    await db.create_pool()
-    await db.drop_table()
-    logging.info("Создаем таблицу пользователей")
-    await db.create_table_users()
+    print("Создаем подключение к БД")
+    await db_gino.on_startup(dp)
+    print("Очистить базу")
+    await db.gino.drop_all()
+    print("Создаем таблицу пользователей")
+    await db.gino.create_all()
+    print(await db.all(User.query))
 
     # Устанавливаем дефолтные команды "\start"
     await set_default_commands(dispatcher)

@@ -3,3 +3,5 @@ environs~=8.0.0
 asyncpg
 python-dotenv
 asyncpg
+SQLAlchemy
+gino

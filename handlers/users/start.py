@@ -1,21 +1,24 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from loader import dp, db
+from loader import dp
 import asyncpg.exceptions
 
 
 # for postgresql
+from utils.db_api import example
+from utils.db_api.schemas.user import User
+
+
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
+    id = message.from_user.id
     try:
-        user = await db.add_user(
-            full_name=message.from_user.full_name,
-            username=message.from_user.username,
-            telegram_id=message.from_user.id
-        )
-    except asyncpg.exceptions.UniqueViolationError:
-        user = await db.select_user(telegram_id=message.from_user.id)
+        user = await User(
+            name=message.from_user.username,
+            id=id
+        ).create()
+    except asyncpg.UniqueViolationError:
+        user = await User.get(id)
 
-    user = list(user)
-    await message.answer(f"Привет, {user}!")
+    await message.answer(f"Привет, {user.name}!")

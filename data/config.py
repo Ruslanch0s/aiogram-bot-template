@@ -11,7 +11,11 @@ ADMINS = env.list("ADMINS")  # Тут у нас будет список из а�
 IP = env.str("ip")  # Тоже str, но для айпи адреса хоста
 
 # for postgresql
-DB_USER = env.str("DB_USER")
-DB_PASSWORD = env.str("DB_PASSWORD")
-DB_NAME = env.str("DB_NAME")
-DB_HOST = env.str("DB_HOST")
+PG_USER = env.str("PG_USER")
+PG_PASSWORD = env.str("PG_PASSWORD")
+PG_NAME = env.str("PG_NAME")
+PG_HOST = env.str("PG_HOST")
+
+# GINO
+DATABASE = env.str("DATABASE")
+POSTGRES_URL = f"postgresql://{PG_USER}:{PG_PASSWORD}@{IP}/{DATABASE}"
