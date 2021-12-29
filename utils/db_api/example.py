@@ -2,7 +2,7 @@ import asyncio
 
 from asyncpg import UniqueViolationError
 
-from data.config import POSTGRES_URL
+from data.config import POSTGRES_URI
 from utils.db_api.db_gino import db
 from utils.db_api.schemas.user import User
 
@@ -35,7 +35,7 @@ async def update_user_email(id: int, email: str):
 
 
 async def test():
-    await db.set_bind(POSTGRES_URL)
+    await db.set_bind(POSTGRES_URI)
     await db.gino.drop_all()
     await db.gino.create_all()
 

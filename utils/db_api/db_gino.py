@@ -42,4 +42,4 @@ class TimedBaseModel(BaseModel):
 # на запуске нужно выполнять функцию привязки БД к ссылке
 async def on_startup(dispatcher: Dispatcher):
     print("Установка связи с PostgreSQL")
-    await db.set_bind(config.POSTGRES_URL)
+    await db.set_bind(config.POSTGRES_URI)
