@@ -27,7 +27,7 @@ services:
     volumes:
       - .:/src
     depends_on:
-      - database
+      - test_db
 
 networks:
   botnet:
