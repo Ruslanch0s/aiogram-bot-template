@@ -18,4 +18,4 @@ PG_HOST = env.str("PG_HOST")
 
 # GINO
 PG_DB_NAME = env.str("PG_DB_NAME")
-POSTGRES_URI = f"postgresql://{PG_USER}:{PG_PASSWORD}@{IP}/{PG_DB_NAME}"
+POSTGRES_URI = f"postgresql://{PG_USER}:{PG_PASSWORD}@{PG_HOST}:5432/{PG_DB_NAME}"
