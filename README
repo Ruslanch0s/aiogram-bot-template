@@ -1,0 +1,2 @@
+1. sudo docker build
+2. сделать миграцию бд в django
