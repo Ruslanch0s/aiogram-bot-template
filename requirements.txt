@@ -1,5 +1,6 @@
 aiogram<3.0
-environs~=8.0.0
+environs==9.4.0
 asyncpg
 python-dotenv
-asyncpg
+Django==4.0.1
+psycopg2-binary
