@@ -84,7 +84,7 @@ DATABASES = {
         'USER': data.config.PG_USER,
         'PASSWORD': data.config.PG_PASSWORD,
         'HOST': data.config.PG_HOST,
-        'PORT': data.config.PG_PORT
+        # 'PORT': data.config.PG_PORT
     }
 }
 

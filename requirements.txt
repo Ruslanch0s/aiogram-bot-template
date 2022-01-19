@@ -3,4 +3,5 @@ environs==9.4.0
 asyncpg
 python-dotenv
 Django==4.0.1
-psycopg2-binary
+psycopg2
+p
